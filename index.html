@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 100vw; height: 100vh;"></div>
-    </div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -111,6 +108,7 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
+          unityInstance.SetFullscreen(1);
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
@@ -120,5 +118,10 @@
       };
       document.body.appendChild(script);
     </script>
+    <style>
+      body{
+        background-color: #242424;
+      }
+    </style>
   </body>
 </html>
